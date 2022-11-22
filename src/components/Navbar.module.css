@@ -1,0 +1,111 @@
+/* 데스크탑 */
+.nav {
+  position: fixed;
+  width: 100vw;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  /* background-color: aquamarine; */
+  z-index: 10;
+  transition: background-color 1s ease-in-out;
+}
+
+.nav:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.nav.bg {
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: background-color 1s ease-in-out;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: 20px 0;
+  /* background-color: aqua; */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon {
+  width: 50px;
+  margin-right: 10px;
+}
+
+.name {
+  font-size: 40px;
+  font-weight: 900;
+  /* color: var(--brand-color); */
+}
+
+.filters {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.filters > .filter.selected {
+  color: var(--point-color);
+}
+
+.filters > .filter:hover {
+  transform: scale(1.1);
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+  color: var(--point-color);
+}
+
+.link {
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+  font-size: 40px;
+}
+
+.notionBtn:hover,
+.githubBtn:hover {
+  transform: scale(1.2);
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1023px) {
+  /* 타블렛 */
+
+  .inner {
+    position: relative;
+    width: 90%;
+    overflow: hidden;
+  }
+
+  .filters {
+    position: absolute;
+    top: -110px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: block;
+    text-align: center;
+    font-size: 30px;
+    width: 30%;
+  }
+
+  .filters > .filter {
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 20px 0;
+    /* padding: 0 20px; */
+    border-radius: 15px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  /* 모바일 */
+}

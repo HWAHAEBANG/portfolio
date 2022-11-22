@@ -1,0 +1,54 @@
+.mainBox {
+  padding-top: 30px;
+
+  /* background-color: aqua; */
+}
+
+.page4_title {
+  font-family: "Playfair Display", serif;
+  font-size: 70px;
+  font-weight: 900;
+  margin: 0 0 20px 50px;
+  z-index: 1;
+  color: var(--brand-color);
+}
+
+.projectList {
+  /* background-color: aquamarine; */
+  display: flex;
+  /* position: absolute; */
+
+  justify-content: center;
+}
+
+.projectList li img {
+  width: 900px;
+}
+
+.prevBtn {
+  position: absolute;
+  top: 50%;
+  left: 100px;
+  z-index: 1;
+  /* background-color: aqua; */
+  width: 130px;
+  height: 130px;
+  color: white;
+}
+
+.nextBtn {
+  position: absolute;
+  top: 50%;
+  right: 100px;
+  z-index: 1;
+  /* background-color: aqua; */
+  width: 130px;
+  height: 130px;
+  color: white;
+}
+
+.prevBtn:hover,
+.nextBtn:hover {
+  transform: scale(1.1);
+  transition: all 0.1s ease-in-out;
+}
