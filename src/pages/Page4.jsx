@@ -14,16 +14,31 @@ const projects = [
 ];
 
 export default function Page4({}) {
-  const [slidePx, setSlidePx] = useState(1350);
+  /* test */
+  const [check, setCheck] = useState(2);
+
+  // console.log(projects[che]);
+  /* test */
+
+  const [slidePx, setSlidePx] = useState(1500);
 
   const toPrev = () => {
-    slidePx < 1350 && setSlidePx(slidePx + 900);
-    slidePx === 1350 && setSlidePx(-2250);
+    setCheck((prev) => prev - 1);
+    slidePx <= 2500 && setSlidePx(slidePx + 1000);
+    setTimeout(() => {
+      slidePx === 1500 && setSlidePx(-1500);
+      slidePx === 1500 && setCheck(5);
+    }, 300);
   };
 
   const toNext = () => {
-    slidePx > -2250 && setSlidePx(slidePx - 900);
-    slidePx === -2250 && setSlidePx(1350);
+    setCheck((prev) => prev + 1);
+    slidePx >= -2500 && setSlidePx(slidePx - 1000);
+
+    setTimeout(() => {
+      slidePx === -1500 && setSlidePx(1500);
+      slidePx === -1500 && setCheck(2);
+    }, 300);
   };
 
   return (
@@ -33,27 +48,41 @@ export default function Page4({}) {
         {projects.map((project, index) => (
           <li
             key={index}
-            style={{
-              transform: `translateX(${slidePx}px)`,
-              transition: "0.5s ease",
-            }}
+            style={
+              slidePx === 1500 || slidePx === -1500
+                ? {
+                    transform: `translateX(${slidePx}px)`,
+                    // transition: "0s ease",
+                  }
+                : {
+                    transform: `translateX(${slidePx}px)`,
+                    transition: " all 0.5s ease",
+                  }
+            }
           >
-            <img src={project} alt={index} />
+            <img
+              src={project}
+              alt={index}
+              style={
+                index - 1 === check || index + 1 === check
+                  ? { opacity: `0.4` }
+                  : {}
+              }
+            />
           </li>
         ))}
+        <IoIosArrowBack
+          className={styles.prevBtn}
+          onClick={toPrev}
+          // style={{ display: slidePx === 0 ? "none" : "" }}
+        />
+
+        <IoIosArrowForward
+          className={styles.nextBtn}
+          onClick={toNext}
+          // style={{ display: slidePx === -4125 ? "none" : "" }}
+        />
       </ul>
-
-      <IoIosArrowBack
-        className={styles.prevBtn}
-        onClick={toPrev}
-        // style={{ display: slidePx === 0 ? "none" : "" }}
-      />
-
-      <IoIosArrowForward
-        className={styles.nextBtn}
-        onClick={toNext}
-        // style={{ display: slidePx === -4125 ? "none" : "" }}
-      />
     </div>
   );
 }
